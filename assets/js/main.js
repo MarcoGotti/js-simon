@@ -18,11 +18,11 @@ setTimeout(function(){x.innerHTML = '!! You got 5 seconds left !!'}, 2500);
 setTimeout(() => {ulEl.innerHTML = '';}, 5000);
 setTimeout(() => {
     for (let index = 0; index < 5; index++) {
-        const givenNumb = Number(prompt(`Remember the sequence? Type here the number in position ${index+1} of the sequance`));
+        const givenNumb = Number(prompt(`Remember the sequence? Type here the number of the sequence in position ${index+1}`));
         arrayGivenNumb.push(givenNumb)       
     }
     generateResult()   
- },5050);
+ },5100);
 
 
 
@@ -43,7 +43,7 @@ function generateDetails(arr){
     divEl.innerHTML = '<h5>Number</h5>'
     arr.forEach((number, index) => {
         const h6El = document.createElement('h6');
-        h6El.innerHTML = arr.length === index + 1 ? number : `${number}&nbsp&nbsp&nbsp and`
+        h6El.innerHTML = arr.length === index + 1 ? number : `${number}&nbsp;&nbsp;&nbsp; and`
         divEl.insertAdjacentElement("beforeend", h6El)
     })
     return divEl
@@ -55,11 +55,11 @@ function confrontNumbers(arr) {
 
 function generateRdmNumb() {
     for (let i = 0; i < 5; i++) {
-        const liEl = document.createElement('li')
         const randomNumber = Math.floor(Math.random() * 11);
-        liEl.innerHTML = `${randomNumber}` 
-        ulEl.appendChild(liEl) 
-        arrayRdmNumb.push(randomNumber)   
+        arrayRdmNumb.push(randomNumber) 
+        const liEl = document.createElement('li')
+        liEl.innerHTML = randomNumber 
+        ulEl.appendChild(liEl)   
     }
 }
 
