@@ -24,13 +24,12 @@ setTimeout(() => {
         const givenNumb = Number(prompt(`Remember the sequence? Type here the number in position ${index+1} of the sequance`));
         arrayGivenNumb.push(givenNumb)       
     }
-
-    result()   
+    generateResult()   
  },5100)
 
 
- 
-function result(){
+
+function generateResult(){
     let rightNumb;
     rightNumb = confrontNumbers(arrayRdmNumb)
 
@@ -39,11 +38,11 @@ function result(){
     if(rightNumb.length === 0) {
         return
     } else {
-    ulEl.insertAdjacentElement("afterend", generateResult(rightNumb))
+    ulEl.insertAdjacentElement("afterend", generateDetails(rightNumb))
     }
 }
 
-function generateResult(arr){
+function generateDetails(arr){
     const divEl = document.createElement('div');
     divEl.className = 'd_flex';
     divEl.innerHTML = '<h5>Number</h5>'
