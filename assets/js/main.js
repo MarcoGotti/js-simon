@@ -1,3 +1,4 @@
+
 /* 
 Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi. Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 */
@@ -10,36 +11,30 @@ let x = document.querySelector('h3');
 const arrayRdmNumb = [];
 const arrayGivenNumb = [];
 
-
-generateRdmNumb()
+generateRdmNumb();
 console.log(arrayRdmNumb);
 
-
-setTimeout(function(){x.innerHTML = '!! You got 5 seconds left !!'}, 2500)
-
-setTimeout(() => {ulEl.innerHTML = '';}, 5000)
-
+setTimeout(function(){x.innerHTML = '!! You got 5 seconds left !!'}, 2500);
+setTimeout(() => {ulEl.innerHTML = '';}, 5000);
 setTimeout(() => {
     for (let index = 0; index < 5; index++) {
         const givenNumb = Number(prompt(`Remember the sequence? Type here the number in position ${index+1} of the sequance`));
         arrayGivenNumb.push(givenNumb)       
     }
     generateResult()   
- },5100)
+ },5050);
 
 
 
 function generateResult(){
     let rightNumb;
-    rightNumb = confrontNumbers(arrayRdmNumb)
+    rightNumb = confrontNumbers(arrayRdmNumb);
 
     x.innerHTML = `You guessed ${rightNumb.length} time${rightNumb.length != 1 ? 's' : ''} right`;
  
-    if(rightNumb.length === 0) {
-        return
-    } else {
-    ulEl.insertAdjacentElement("afterend", generateDetails(rightNumb))
-    }
+    if(rightNumb.length === 0) return;   
+    ulEl.insertAdjacentElement("afterend", generateDetails(rightNumb));
+    
 }
 
 function generateDetails(arr){
